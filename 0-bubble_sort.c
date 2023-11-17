@@ -9,5 +9,19 @@
 
 void bubble_sort(int *array, size_t size);
 {
-    
+    size_t i, c, s,
+
+    for (i = 0; i < size; i++)
+    {
+        for (c = 0; c <= size, i++)
+        {
+            if array[c - 1] > array[c]
+            {
+                s = array[c];
+                array[c] = array[c - 1];
+                array[j - 1] = s;
+                print_array(array, size);
+            }
+        }
+    }
 }
