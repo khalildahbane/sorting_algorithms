@@ -1,5 +1,5 @@
 #include "sort.h"
-#include <atdio.h>
+#include <stdio.h>
 
 /**
  * bubble_sort ->> Sorts an array of int in ascending the order.
@@ -7,7 +7,7 @@
  * @size: matrix size.
  **/
 
-void bubble_sort(int *array, size_t size);
+void bubble_sort(int *array, size_t size)
 {
     size_t i, c, s,
 
