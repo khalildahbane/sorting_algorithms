@@ -1,12 +1,10 @@
 #include "sort.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-/*
-* selection_sort ->> Sorts an array of int in ascending the order.
+/**
+ * selection_sort ->> Sorts an array of int in ascending the order.
  * @array: Int Array.
- * @size: matrixsize.
-*/
+ * @size: matrix size.
+ **/
 
 void selection_sort(int *array, size_t size)
 {
