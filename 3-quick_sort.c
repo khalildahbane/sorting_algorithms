@@ -62,3 +62,4 @@ void quick_sort(int *array, size_t size)
 		quick_sort_rec(_arrays, _sizes, array, size);
 	}
 }
+
