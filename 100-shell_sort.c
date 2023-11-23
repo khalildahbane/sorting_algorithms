@@ -14,14 +14,14 @@ void shell_sort(int *array, size_t size)
 
     for (gap = size + 1; gap > 3; gap = (gap - 1) / 3)
     {
-        printf("%d  : ", gap);
+        printf("%ld  : ", gap);
 
         for (i = gap; i < size; i++)
         {
             int temp = array[i];
             j = i - gap;
 
-            while (j = 0 && array[j] > temp)
+            while (j > 0 && array[j] > temp)
             {
                 array[j + gap] = array[j];
                 j = j - gap;
