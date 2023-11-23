@@ -20,7 +20,6 @@ void swap_plus(listint_t **list, listint_t *_up, listint_t *vary)
 	vary->next = _up;
 	_up->prev = vary;
 	print_list(*list);
-
 }
 
 /**
@@ -86,7 +85,6 @@ void cocktail_sort_list(listint_t **list)
 				else
 					h = h->prev;
 			}
-
 		}
 	}
 }
