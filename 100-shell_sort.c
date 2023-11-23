@@ -1,5 +1,4 @@
 #include "sort.h"
-#include <stdio.h>
 
 /**
  * shell_sort ->> Sorts an array of int in ascending the order.
@@ -9,36 +8,34 @@
 
 void shell_sort(int *array, size_t size)
 {
-    int gap = 1;
-    while (gap <= size / 3)
+    size_t kun[1000], k = 0, j = 0, i;
+    int m;
+
+    if (!array)
+        return;
+    while (j * 3 + 1 < size)
     {
-        gap = gap * 3 + 1;
+        kun[k] = j * 3 + 1;
+        j = kun[k++];
     }
-
-    while (gap > 0)
+    for (i = 0; i < k; i++)
     {
-        for (size_t i = gap; i < size; i++)
+        for (j = 0; j < size; j++)
         {
-            int temp = array[i];
-            size_t j = i;
-
-            while (j >= gap && array[j - gap] > temp)
+            if ((j + kun[k - i - 1]) > size - 1)
+                break;
+            k = j;
+            while (array[k] > array[k + kun[k - i - 1]])
             {
-                array[j] = array[j - gap];
-                j -= gap;
+		int k;
+                m = array[k];
+                array[k] = array[k + kun[k - i - 1]];
+                array[k + kun[k - i - 1]] = m;
+                k = k - kun[k - i - 1];
+                if (k < 0)
+                    break;
             }
-
-            array[j] = temp;
         }
-
-        printf("Array after decreasing interval (gap = %d): ", gap);
         print_array(array, size);
-
-        gap = (gap - 1) / 3;
-
-        if (gap == 0)
-        {
-            break;
-        }
     }
 }
