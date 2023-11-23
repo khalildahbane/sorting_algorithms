@@ -23,6 +23,10 @@ void shell_sort(int *array, size_t size)
 
             while (j > 0 && array[j] > temp)
             {
+                if ((j + kun[i - i - 1]) > size - 1)
+                    break;
+                i = j;
+
                 array[j + gap] = array[j];
                 j = j - gap;
             }
