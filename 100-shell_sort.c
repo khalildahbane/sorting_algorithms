@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "sort.h"
 
 /**
@@ -8,34 +9,30 @@
 
 void shell_sort(int *array, size_t size)
 {
-        size_t kun[1000], k = 0, j = 0, i;
-        int m;
+    size_t gap, i, j;
 
-        if (!array)
-            return;
-        while (j * 3 + 1 < size)
+    for (gap = size + 1; gap > 3; gap = (gap - 1) / 3)
+    {
+        printf("%zu: ", gap);
+
+        for (i = gap; i < size; i++)
         {
-            kun[k] = j * 3 + 1;
-            j = kun[k++];
-        }
-        for (i = 0; i < k; i++)
-        {
-            for (j = 0; j < size; j++)
+            int temp = array[i];
+            j = i - gap;
+
+            while (j >= 0 && array[j] > temp)
             {
-                if ((j + kun[k - i - 1]) > size - 1)
-                    break;
-                k = j;
-                while (array[k] > array[k + kun[k - i - 1]])
-                {
-		    int k;
-                    m = array[k];
-                    array[k] = array[k + kun[k - i - 1]];
-                    array[k + kun[k - i - 1]] = m;
-                    k = k - kun[k - i - 1];
-                    if (k < 0)
-                        break;
-                }
+                array[j + gap] = array[j];
+                j = j - gap;
             }
-            print_array(array, size);
+
+            array[j + gap] = temp;
         }
+
+        for (i = 0; i < size; i++)
+        {
+            printf("%d ", array[i]);
+        }
+        printf("\n");
+    }
 }
