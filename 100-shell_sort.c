@@ -1,3 +1,11 @@
+#include "sort.h"
+
+/**
+ * shell_sort ->> Sorts an array of int in ascending the order.
+ * @array: int Array.
+ * @size: matrix size.
+ **/
+
 void shell_sort(int *array, size_t size)
 {
     size_t kun[1000], k = 0, j = 0, i;
